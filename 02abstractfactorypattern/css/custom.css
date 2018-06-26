@@ -1,0 +1,94 @@
+/*GENERALES*/
+*{margin:0; padding: 0;}
+html, body{ background:#023043; width: 100%; }
+html, body, main, header, footer{  overflow-x: hidden; box-sizing: border-box; }
+main, header, footer{ font-family: 'Montserrat', sans-serif; color: #ffffff;}
+main, header, footer{ width: 80%; margin: 0 auto; }
+footer{ background: #212121; padding: 20px; box-sizing: border-box; }
+main{ background: #ffffff; width: 80%; margin:0 auto; }
+section{ width: 100%; padding: 55px; box-sizing: border-box;}
+
+/*FUENTES*/
+h1{ padding: 15px 0px 5px; box-sizing: border-box; font-weight: 900; color: #015f56;  }
+h2, h3{color: #19a396; margin: 10px 0px;}
+h1, h2, h3 { text-align: center; }
+h4, h5, h6, p{ color: #212121; }
+h1{ font-size: 30px; }
+h2{ font-size: 22px; }
+h3{ font-size: 20px; }
+h4{ font-size: 18px; }
+h5{ font-size: 17px; }
+p{ font-size: 16px; }
+span.code{ font-family: Consolas; font-size: 18px;}
+
+/*IMÁGENES*/
+figure{ width: 100%; margin: 20px 0px; box-sizing: border-box;}
+img{ width: 100%; box-sizing: border-box; vertical-align: middle; }
+
+
+/*ESPACIOS VACÍOS*/
+.empty-space{ margin:70px 0px; }
+
+/*CONTENEDORES*/
+.container{ width: 100%; }
+.explicacion{ width: 100%;}
+.wrapper, .row{ width: 100%; }
+.col1-2{ width: 50%; }
+.col1-3{ width: 33.33%; }
+.col2-3{ width: 66.66%; }
+.col1-4{ width: 25%; }
+.col3-4{ width: 75%; }
+.column{ display: flex; }
+
+/*CLASES*/
+.italic{ font-style: italic; }
+.center{ text-align: center; }
+.left{ text-align: left; }
+.right{ text-align: right }
+.justify{ text-align: justify; }
+.negrita{ color: #212121; font-weight: bold; }
+.small{ font-size: 14px; }
+
+/*COLORES*/
+.arandano, .chocolate, .crimson, .green{ font-weight: bold; }
+.arandano{color: rgb(230, 44, 88); }
+.chocolate{ color: rgb(123, 63, 0); }
+.crimson{ color: crimson; }
+.green{ color: #07a362; }
+footer p{ color: #ffffff; }
+
+/*ENLACES*/
+a{ color: #015f56; text-decoration: none; transition: color 400ms ease-in-out; font-weight: bold}
+a:hover{ color: #7cc75c; text-decoration: none; transition: color 400ms ease-in-out; }
+
+/*EFECTOS HEADER*/
+header{ 
+	min-height: 350px; 
+	position: relative; 
+}
+
+header.wrapper, header .cover{ position: absolute;  width: 100%;  height: 100%; }
+header .cover{ 
+	background: teal;
+	box-sizing: border-box; 
+	background-image: url('../img/general/patterns.png');
+	background-size: 100% 100%;
+	background-position: 50% 50%;
+	transition: all 400ms ease-in-out;
+}
+.header.negro{ 
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	color: #000000; 
+	width: 60%;
+	margin: 0 auto;
+	padding: 20px;
+	background: rgba(255,255, 255, 0.6);
+	box-sizing: border-box;
+}
+
+header:hover .cover{ 
+	filter: blur(2px);
+	background-size: 102% 102%;
+}
