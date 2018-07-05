@@ -5,7 +5,7 @@ html, body, main, header, footer{  overflow-x: hidden; box-sizing: border-box; }
 main, header, footer{ font-family: 'Montserrat', sans-serif; color: #ffffff;}
 main, header, footer{ width: 80%; margin: 0 auto; }
 footer{ background: #212121; padding: 20px; box-sizing: border-box; }
-main{ background: #ffffff; width: 80%; margin:0 auto; }
+main{ background: #ffffff; width: 80%; margin:0 auto; color: #212121;}
 section{ width: 100%; padding: 55px; box-sizing: border-box;}
 
 /*FUENTES*/
@@ -19,12 +19,16 @@ h3{ font-size: 20px; }
 h4{ font-size: 18px; }
 h5{ font-size: 17px; }
 p{ font-size: 16px; }
+ul{ margin: 5px 35px; }
 span.code{ font-family: Consolas; font-size: 18px;}
+a.button{ padding: 10px; background:#48afda; color: #ffffff; border: 1px solid #48afda; transition: all 300ms ease-in-out; min-width: 120px;}
+a.button:hover{ padding: 10px; background:#2899c8; cursor: pointer;}
 
 /*IMÁGENES*/
-figure{ width: 100%; margin: 20px 0px; box-sizing: border-box;}
+figure{ width: 100%; margin: 20px 0px; box-sizing: border-box; text-align: center;}
 img{ width: 100%; box-sizing: border-box; vertical-align: middle; }
-
+figure.logo{ margin: 0px 0px !important; }
+figure.logo img{width: 12% !important; }
 
 /*ESPACIOS VACÍOS*/
 .empty-space{ margin:70px 0px; }
@@ -71,7 +75,7 @@ header.wrapper, header .cover{ position: absolute;  width: 100%;  height: 100%; 
 header .cover{ 
 	background: teal;
 	box-sizing: border-box; 
-	background-image: url('../img/general/patterns.png');
+	background-image: url('../img/general/patterns.jpg');
 	background-size: 100% 100%;
 	background-position: 50% 50%;
 	transition: all 400ms ease-in-out;
@@ -92,3 +96,11 @@ header:hover .cover{
 	filter: blur(2px);
 	background-size: 102% 102%;
 }
+
+/*SIGUIENTES LECCIONES*/
+ #lessons{
+ 	display: flex;
+ 	justify-content: space-between;
+ 	margin: 20px 0px;
+ 	color: #212121;
+ }

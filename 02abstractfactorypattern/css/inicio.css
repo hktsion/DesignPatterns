@@ -1,0 +1,58 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css);
+
+/*GENERALES*/
+*{margin:0; padding: 0;}
+html, body{ background:#023043; width: 100vw; height: 100vh; box-sizing: border-box; overflow: hidden; }
+html, body, main, header, footer{  overflow-x: hidden; box-sizing: border-box; }
+main{ font-family: 'Montserrat', sans-serif; color: #ffffff;width: 100%; margin: 90px auto; }
+section{ width: 100%; padding: 35px; box-sizing: border-box; text-align: center;}
+
+/*FUENTES*/
+h1{ padding: 15px 0px 5px; box-sizing: border-box; font-weight: 900; color: #015f56;  }
+h2, h3{color: #19a396; margin: 10px 0px;}
+h1, h2, h3 { text-align: center; }
+h4, h5, h6, p{ color: #212121; }
+h1{ font-size: 30px; }
+h2{ font-size: 22px; }
+h3{ font-size: 20px; }
+h4{ font-size: 18px; }
+h5{ font-size: 17px; }
+p{ font-size: 16px; }
+span.code{ font-family: Consolas; font-size: 18px;}
+
+/*IMÁGENES*/
+figure{ width: 50%; box-sizing: border-box; margin: 0 auto; text-align: center;}
+img{ width: 30%; height: 30%; box-sizing: border-box; vertical-align: middle; }
+
+/*BUTTON*/
+.btn {
+	max-width: 200px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	background-color: #008da3;
+	font-size: 16px;
+	font-weight: bold;
+	color: #FFF;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	margin: 0 auto;
+	border-radius: 20px;
+	box-shadow:0 6px #007080;
+}
+
+.btn:hover {
+	outline: none;
+	color: #fff;
+	box-shadow: 0 4px #007080;
+	top: 2px;
+}
+
+.btn:active, .btn:focus, .btn:link {
+	outline: none;
+	box-shadow: none;
+	top: 6px;
+}
