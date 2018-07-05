@@ -1,14 +1,14 @@
 <?php
-include '../clases/class.interior.php';
-include '../clases/class.exterior.php';
-include '../clases/class.visco.php';
-include '../clases/class.muelle.php';
-include '../clases/class.espuma.php';
-include '../clases/class.fibra.php';
-include '../clases/class.abstractfactory.php';
-include '../clases/class.factoriaexterna.php';
-include '../clases/class.factoriainterna.php';
-include '../clases/class.generadorfactorias.php';
+include 'clases/class.interior.php';
+include 'clases/class.exterior.php';
+include 'clases/class.visco.php';
+include 'clases/class.muelle.php';
+include 'clases/class.espuma.php';
+include 'clases/class.fibra.php';
+include 'clases/class.abstractfactory.php';
+include 'clases/class.factoriaexterna.php';
+include 'clases/class.factoriainterna.php';
+include 'clases/class.generadorfactorias.php';
 
 
 
@@ -27,7 +27,7 @@ include '../clases/class.generadorfactorias.php';
 	<link rel="shortcut icon" type="image/png" href="img/general/factory_pattern_logo.png"/>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link rel="stylesheet" href="../css/custom.css?version=2.9">
+	<link rel="stylesheet" href="css/custom.css?version=2.9">
 </head>
 <body>
 	<header>
@@ -42,7 +42,7 @@ include '../clases/class.generadorfactorias.php';
 		<section>
 			<div class="wrapper">
 				<figure class="logo" style="text-align: center; margin: 0px 0px;">
-					<img style="width: 12%;" src="../img/general/factory_pattern_logo.png" alt="factory_pattern_logo.png">
+					<img style="width: 12%;" src="img/factory_pattern_logo.png" alt="factory_pattern_logo.png">
 				</figure>
 				<h1>PATRÓN DE LA FACTORÍA ABSTRACTA</h1>
 
@@ -74,7 +74,7 @@ include '../clases/class.generadorfactorias.php';
 
 						<div class="col1-3">
 							<figure>
-								<img src="../img/abstractfactorypattern/pakolin.png" alt="pakolin">
+								<img src="img/pakolin.png" alt="pakolin">
 							</figure>
 						</div>
 					</div>
@@ -96,7 +96,7 @@ include '../clases/class.generadorfactorias.php';
 
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/interface_exterior.png" alt="interface_exterior">
+								<img src="img/interface_exterior.png" alt="interface_exterior">
 							</figure>
 						</div>
 
@@ -108,7 +108,7 @@ include '../clases/class.generadorfactorias.php';
 
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/interface_interior.png" alt="interface_interior">
+								<img src="img/interface_interior.png" alt="interface_interior">
 							</figure>
 						</div>
 					</div>
@@ -131,13 +131,13 @@ include '../clases/class.generadorfactorias.php';
 						<div>
 							<p>Creamos una clase <span class="code crimson">muelles</span> que evidentemente es una capa interna.</p>
 							<figure>
-								<img src="../img/abstractfactorypattern/class_muelles.png" alt="class_muelles">
+								<img src="img/class_muelles.png" alt="class_muelles">
 							</figure>
 						</div>
 						<div>
 							<p>Hacemos lo mismo para una clase <span class="code crimson">espuma</span>.</p>
 							<figure>
-								<img src="../img/abstractfactorypattern/class_espuma.png" alt="class_espuma">
+								<img src="img/class_espuma.png" alt="class_espuma">
 							</figure>
 						</div>
 						<br>
@@ -145,13 +145,13 @@ include '../clases/class.generadorfactorias.php';
 							<p>Nuestra fábrica recubre los colchones con capas externas, que pueden ser capas de <span class="code crimson">fibra</span> o capas viscoelásticas (<span class="code crimson">visco</span>). </p>
 							<p>Realizamos el mismo proceso que para los muelles y la espuma, pero esta vez, los recubrimientos serán externos (implementarán los métodos de la interfaz <span class="code green">Exterior</span>).</p>
 							<figure>
-								<img src="../img/abstractfactorypattern/class_visco.png" alt="class_visco">
+								<img src="img/class_visco.png" alt="class_visco">
 							</figure>
 						</div>
 						<div>
 							<p>Lo mismo en la clase <span class="code crimson">fibra</span>.</p>
 							<figure>
-								<img src="../img/abstractfactorypattern/class_fibra.png" alt="class_fibra">
+								<img src="img/class_fibra.png" alt="class_fibra">
 							</figure>
 						</div>
 					</div>
@@ -171,7 +171,7 @@ include '../clases/class.generadorfactorias.php';
 
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/abstractfactory.png" alt="abstractfactory.png">
+								<img src="img/abstractfactory.png" alt="abstractfactory.png">
 							</figure>
 						</div>
 					</div>
@@ -188,12 +188,12 @@ include '../clases/class.generadorfactorias.php';
 
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/factory_exterior.png" alt="factory_exterior.png">
+								<img src="img/factory_exterior.png" alt="factory_exterior.png">
 							</figure>
 						</div>
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/factory_interior.png" alt="factory_interior.png">
+								<img src="img/factory_interior.png" alt="factory_interior.png">
 							</figure>
 						</div>
 					</div>
@@ -210,7 +210,7 @@ include '../clases/class.generadorfactorias.php';
 
 						<div>
 							<figure>
-								<img src="../img/abstractfactorypattern/generador_factorias.png" alt="generador_factorias.png">
+								<img src="img/generador_factorias.png" alt="generador_factorias.png">
 							</figure>
 						</div>
 					</div>
@@ -239,7 +239,7 @@ include '../clases/class.generadorfactorias.php';
 
 							<div>
 								<figure>
-									<img src="../img/abstractfactorypattern/res_colchones.png" alt="res_colchones.png">
+									<img src="img/res_colchones.png" alt="res_colchones.png">
 								</figure>
 							</div>
 							<br>
