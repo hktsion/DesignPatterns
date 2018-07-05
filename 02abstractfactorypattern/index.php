@@ -1,10 +1,17 @@
 <?php
-include 'clases/class.muffin.php';
-include 'clases/class.chocolate.php';
-include 'clases/class.arandanos.php';
-include 'clases/class.muffin_factory.php';
+include '../clases/class.interior.php';
+include '../clases/class.exterior.php';
+include '../clases/class.visco.php';
+include '../clases/class.muelle.php';
+include '../clases/class.espuma.php';
+include '../clases/class.fibra.php';
+include '../clases/class.abstractfactory.php';
+include '../clases/class.factoriaexterna.php';
+include '../clases/class.factoriainterna.php';
+include '../clases/class.generadorfactorias.php';
 
-$mfactory = new MuffinFactory('ARND');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,13 +19,15 @@ $mfactory = new MuffinFactory('ARND');
 <head>
 	<meta charset="UTF-8">
 	<meta name="description" content="Patrones de factoría">
-	<meta name="keywords" content="HTML,CSS,PHP,JavaScript">
+	<meta name="keywords" content="Patrones diseño, PHP, Factorias, patrones php, factory patterns">
 	<meta name="author" content="Héctor Ochoa">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Factoría abstracta</title>
 
+	<link rel="shortcut icon" type="image/png" href="img/general/factory_pattern_logo.png"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link rel="stylesheet" href="css/custom.css?version=1.0">
+	<link rel="stylesheet" href="../css/custom.css?version=2.9">
 </head>
 <body>
 	<header>
@@ -32,16 +41,18 @@ $mfactory = new MuffinFactory('ARND');
 	<main>
 		<section>
 			<div class="wrapper">
-				<h1>PATRÓN DE LA FACTORÍA</h1>
-				<h3>- factory pattern -</h3>
+				<figure class="logo" style="text-align: center; margin: 0px 0px;">
+					<img style="width: 12%;" src="../img/general/factory_pattern_logo.png" alt="factory_pattern_logo.png">
+				</figure>
+				<h1>PATRÓN DE LA FACTORÍA ABSTRACTA</h1>
 
 				<div class="empty-space"></div>
 
 				<div class="row">
 					<h3 class="left">LA FÁBRICA DE OBJETOS</h3>
-					<p>El patrón de la factoría es un tipo de <span class="negrita">patrón creacional</span>. Sirve para que el proceso de creación de objetos pueda ser indpendiente del resto de nuestro código.</p>
+					<p>El patrón de la factoría abstracta es un tipo de <span class="negrita">patrón creacional</span> más avanzado que el patrón de la factoría. Este patrón no crea instancias, sino que crea otras factorías que sí puedan crear instancias de obetos. Son factorías de factorías y está orientado a combinar las instancias.</p>
 					<br>
-					<p>Crea a través de una interfaz, familias de objetos que tienen relación entre sí, sin especificar en concreto el objeto.</p>
+
 				</div>
 
 				<div class="empty-space"></div>
@@ -51,31 +62,53 @@ $mfactory = new MuffinFactory('ARND');
 						
 						<div class="col2-3">
 							<h3 class="left">CASO DE USO</h3>
-							<p>Tenemos una fábrica de MUFFINS, sí de 'madalenas' de toda la vida. El caso es que nuestra fábrica sólo fabrica 2 tipo de madalenas, unas con arándanos y otras de chocolate (pero las 2 son madalenas).</p>
-							<br>
-							<p>Todas ellas tendrán unas características comunes, como <span class="negrita">calorías</span>, <span clas="negrita">precio</span>... , pero además, unas llevarán <span class="chocolate">chocolate</span> y otras <span class="arandano">arandanos</span>.</p>
+							<p>Supongamos que somos los dueños de la empresa "Pakolin" que fabrica colchones.</p>
+							<p>"Pakolin" fabrica colchones compuestos por capas: 
+								<ul>
+									<li>Una capa externa</li>
+									<li>Una capa interna.</li>
+								</ul>
+							</p>
+							<p>Podemos recurrir entonces a la factoría abstracta, ya que las capas que componen un colchón interactúan entre sí para conformar el producto final, nuestro colchón.</p>
 						</div>
 
 						<div class="col1-3">
 							<figure>
-								<img src="img/factorypattern/muffins.png" alt="interface">
+								<img src="../img/abstractfactorypattern/pakolin.png" alt="pakolin">
 							</figure>
 						</div>
 					</div>
 				</div>
 
-				<div class="empty-space"></div>
 
 				<div class="row">
 					<div class="wrapper">
 						<div>
-							<h3 class="left">CREACIÓN DE LA INTERFAZ</h3>
-							<p>Creamos una <span class="code crimson">interfaz</span> que contenga los métodos implementables: <span class="code green">getCalorias</span>, <span class="code green">getPPU</span> (precio por ud), <span class="code green">tieneChocolate</span>, y <span class="code green">tieneArandanos</span></p>
+							<h3 class="left">CREACIÓN DE LAS INTERFACES</h3>
+							<p>Creamos 2 <span class="code crimson">interfaces</span> para cada una de las capas que vamos a encontrar, la capa externa y la capa interna.</p>
+						</div>
+
+						<br>
+
+						<div>
+							<p>La <span class="code crimson">primera interfaz</span>, para la capa interior del colchón contiene 2 métodos implementables: <span class="code green">tipo</span> y <span class="code green">firmeza</span>.</p>
 						</div>
 
 						<div>
 							<figure>
-								<img src="img/factorypattern/interface.png" alt="interface">
+								<img src="../img/abstractfactorypattern/interface_exterior.png" alt="interface_exterior">
+							</figure>
+						</div>
+
+						<br>
+
+						<div>
+							<p>De la misma forma, creamos la <span class="code crimson">segunda interface</span> para la capa externa del colchón. Provee de otros 2 métodos: <span class="code green">nombre</span> y <span class="code green">grosor</span>.</p>
+						</div>
+
+						<div>
+							<figure>
+								<img src="../img/abstractfactorypattern/interface_interior.png" alt="interface_interior">
 							</figure>
 						</div>
 					</div>
@@ -86,22 +119,39 @@ $mfactory = new MuffinFactory('ARND');
 				<div class="row">
 					<div class="wrapper">
 						<div>
-							<h3 class="left">CREAMOS NUESTRAS CLASES PARA LAS MUFFINS</h3>
-							<p>Creamos dos <span class="code crimson">clases</span>, una para nuestras muffins de chocolate y otra para nuestras muffins de frambuesa, que implementen la interfaz.</p>
+							<h3 class="left">CREAMOS NUESTRAS CLASES</h3>
+							<p>Las capas externas e internas de los colchones pueden ser muy variadas, podemos tener muchas combinaciones, por ejemplo, colchones de muelles con una capa externa viscoelástica, colchones de espuma con fibra de poliéter de 5, 10 o 15cm, colchones de agua con visco... hay multitud de combinaciones.</p>
 							<br>
-							<p>Todas ellas tendrán unas características comunes, como <span class="negrita">calorías</span>, <span clas="negrita">precio</span>... , pero además, unas llevarán <span class="chocolate">chocolate</span> y otras <span class="arandano">arándanos</span>.</p>
+							<p>La <span class="code crimson">fábrica abstracta</span> precisamente resuelve este tipo de asuntos, nos abstrae y nos faclita la creación de productos independentemente de sus componentes.</p>
+							<br>
+							<p>Vamos primero a crear ahora nuestras clases, las que implementarán las interfaces que tenemos.</p>
+							<p>Por un lado podremos tener colchones de muelles o de espuma (para la base o capa <span class="code crimson">interior</span> de un colchón), qunque podríamos tener muchas más. De hecho veremos más adelante lo fácil que es implementar un nuevo material interior para colchones.</p>
 						</div>
-
+						<br>
 						<div>
+							<p>Creamos una clase <span class="code crimson">muelles</span> que evidentemente es una capa interna.</p>
 							<figure>
-								<img src="img/factorypattern/arandanos.png" alt="arandanos">
+								<img src="../img/abstractfactorypattern/class_muelles.png" alt="class_muelles">
 							</figure>
 						</div>
-
 						<div>
-							<p>Y hacemos lo mismo para las muffins de chocolate.</p>
+							<p>Hacemos lo mismo para una clase <span class="code crimson">espuma</span>.</p>
 							<figure>
-								<img src="img/factorypattern/chocolate.png" alt="chocolate">
+								<img src="../img/abstractfactorypattern/class_espuma.png" alt="class_espuma">
+							</figure>
+						</div>
+						<br>
+						<div>
+							<p>Nuestra fábrica recubre los colchones con capas externas, que pueden ser capas de <span class="code crimson">fibra</span> o capas viscoelásticas (<span class="code crimson">visco</span>). </p>
+							<p>Realizamos el mismo proceso que para los muelles y la espuma, pero esta vez, los recubrimientos serán externos (implementarán los métodos de la interfaz <span class="code green">Exterior</span>).</p>
+							<figure>
+								<img src="../img/abstractfactorypattern/class_visco.png" alt="class_visco">
+							</figure>
+						</div>
+						<div>
+							<p>Lo mismo en la clase <span class="code crimson">fibra</span>.</p>
+							<figure>
+								<img src="../img/abstractfactorypattern/class_fibra.png" alt="class_fibra">
 							</figure>
 						</div>
 					</div>
@@ -113,13 +163,15 @@ $mfactory = new MuffinFactory('ARND');
 				<div class="row">
 					<div class="wrapper">
 						<div>
-							<h3 class="left">CREAMOS NUESTRA FATORÍA DE MUFFINS</h3>
-							<p>Aquí viene el paso <span class="crimson">IMPORTANTE: </span> Creamos nuestra fábrica de muffins, una <span class="code crimson">class</span> que generará Muffins de chocolate o de arándanos dependiendo del parámetro que le pasemos, la <span class="green">MuffinFactory</span></p>
+							<h3 class="left">CREAMOS NUESTRA FACTORÍA ABSTRACTA</h3>
+							<p>Este paso es uno de los 2 pasos importantes en este asunto. Creamos una factoría abstracta que tendrá 2 métodos, también abstractos, que recogen el tipo de materiales con los que construimos los colchones:  el <span class="code green">interno</span> y  <span class="code green">externo</span></p>
+							<br>
+							<p>Ésta clase será por tanto la fábrica de fábricas, lo top de lo top en la industria del colchón. La clase contiene 2 métodos que serán implementados en las clases hijas que hereden de la <span class="code green">Abstract Factory</span></p>
 						</div>
 
 						<div>
 							<figure>
-								<img src="img/factorypattern/mufinfactory.png" alt="mufinfactory.png">
+								<img src="../img/abstractfactorypattern/abstractfactory.png" alt="abstractfactory.png">
 							</figure>
 						</div>
 					</div>
@@ -130,13 +182,35 @@ $mfactory = new MuffinFactory('ARND');
 				<div class="row">
 					<div class="wrapper">
 						<div>
-							<h3 class="left">OBTENER EL TIPO DE MUFFIN</h3>
-							<p>A partir de la factoría podemos obtener las muffins que queramos con un código limpio y escalable.</p>
+							<h3 class="left">CREAMOS NUESTRAS FACTORÍAS</h3>
+							<p>Segundo paso importante, creamos nuestras fábricas, la <span class="code green">fábrica de exteriores</span> y la <span class="code green">fábrica de interiores</span> que extenderán de nuestra factoría abstracta.</p>
 						</div>
 
 						<div>
 							<figure>
-								<img src="img/factorypattern/final.png" alt="final.png">
+								<img src="../img/abstractfactorypattern/factory_exterior.png" alt="factory_exterior.png">
+							</figure>
+						</div>
+						<div>
+							<figure>
+								<img src="../img/abstractfactorypattern/factory_interior.png" alt="factory_interior.png">
+							</figure>
+						</div>
+					</div>
+				</div>
+
+				<div class="empty-space"></div>
+
+				<div class="row">
+					<div class="wrapper">
+						<div>
+							<h3 class="left">GENERADOR DE FACTORÍAS</h3>
+							<p>Por último generamos un generador de fábricas abstractas, <span class="code crimson">GeneradorFactorias</span></p>
+						</div>
+
+						<div>
+							<figure>
+								<img src="../img/abstractfactorypattern/generador_factorias.png" alt="generador_factorias.png">
 							</figure>
 						</div>
 					</div>
@@ -145,23 +219,64 @@ $mfactory = new MuffinFactory('ARND');
 
 				<div class="empty-space"></div>
 
-				<?php if($mfactory->getMuffin()):?>
-					<div class="row">
-						<div class="wrapper">
+				<div class="row">
+					<div class="wrapper">
+						<div>
+							<h3 class="left">INSTANCIACIÓN DE CLASES</h3>
+							<p>Y por fin obtenemos nuestros materiales para la fabricación del colchón <span class="code crimson">"Pakolin"</span></p>
+							
+							<?php 
+							$factoria_externa = (new GeneradorFactorias())->getFactoria('EXT');
+							$factoria_interna = (new GeneradorFactorias())->getFactoria('INT');
+
+							$tipo_exterior    = $factoria_externa->getExterior('VIS')->tipo();
+							$calidad_exterior = $factoria_externa->getExterior('VIS')->calidad();
+
+							$nombre_interior  = $factoria_interna->getInterior('ESP')->nombre();
+							$grosor_interior  = $factoria_interna->getInterior('ESP')->grosor();
+
+							?>
+
 							<div>
-								<h3 class="left">EL RESULTADO FINAL SERÁ</h3>
-								<?php $sabor = ($mfactory->getMuffin()->tieneChocolate()) ? 'chocolate' : 'arandano'; ?>
-								<h4>Muffin de <span class="<?php echo $sabor; ?>"><?php echo $sabor.':'; ?></span></h4>
-								<p><?php echo "Calorías: ".$mfactory->getMuffin()->getCalorias()." kcal."; ?></p>
-								<p><?php echo "Precio: ".$mfactory->getMuffin()->getPPU()." €."; ?></p>
+								<figure>
+									<img src="../img/abstractfactorypattern/res_colchones.png" alt="res_colchones.png">
+								</figure>
 							</div>
+							<br>
+
+							<p>
+								El colchón fabricado tendrá las siguientes características: 
+								<ul>
+									<li>Capa Exterior: <?php echo $tipo_exterior. '.'; ?></li>
+									<li>Calidad:       <?php echo $calidad_exterior. '.'; ?></li>
+									<li>Relleno:       <?php echo $nombre_interior. '.'; ?></li>
+									<li>Grosor: <?php echo $grosor_interior. '.'; ?></li>
+								</ul>
+							</p>
+
 						</div>
+
+
 					</div>
-				<?php endif; ?>
+				</div>
+
+				<br><br>
+
+
+				<div class="row">
+					<div class="wrapper">
+						<a href="https://github.com/hktsion/DesignPatterns"><i class="fas fa-download"></i> Descargar código</a>
+					</div>
+				</div>
+				<br><br>	
+
 
 
 			</div>
+
+			
 		</section>
+
 	</main>
 
 	<footer>
